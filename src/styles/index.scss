@@ -1,0 +1,36 @@
+.board{
+    width: 500px; 
+    height: 500px; 
+    border: 1px solid black; 
+}
+
+p{
+    max-width: 10px; 
+    max-height: 10px; 
+    min-width: 10px;
+    min-height: 10px;
+    border: 1px solid black; 
+}
+
+#board-piece{
+    max-width: 10px; 
+    max-height: 10px; 
+    min-width: 10px;
+    min-height: 10px;
+    border: 1px solid red; 
+}
+
+img{
+    height: 56px; 
+    width: 70px; 
+    position: relative;
+    left: 50px;
+    top: 50px;
+    
+}
+
+.teleportation_meter{
+    width: 90px;
+    height: 10px;
+    background-color:lightblue;
+}
