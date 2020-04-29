@@ -3,13 +3,25 @@
     height: 500px; 
     border: 1px solid black; 
 }
+.main-page{
+    display: flex; 
+}
+.utilities{
+    display: flex; 
+    justify-content: space-between;
+}
+.right-side{
+    margin-left: 100px; 
+    margin-top: 110px; 
+    width: 400px; 
+    border: red 1px solid; 
+    word-wrap: normal;
+}
 
-p{
-    max-width: 10px; 
-    max-height: 10px; 
-    min-width: 10px;
-    min-height: 10px;
-    border: 1px solid black; 
+.game-rules{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #board-piece{
@@ -30,7 +42,7 @@ img{
 }
 
 .teleportation_meter{
-    width: 90px;
+  
     height: 10px;
     background-color:lightblue;
 }

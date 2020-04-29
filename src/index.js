@@ -1,44 +1,44 @@
 import './styles/index.scss'
 import Player from './scripts/player'
+import Timer from './scripts/teleportation_timer'
 
 document.addEventListener("DOMContentLoaded", () => {
-    // var rect = element.getBoundingClientRect();
-    // console.log(rect.top, rect.right, rect.bottom, rect.left);
+   
 
     let board = document.getElementById("board");
-    // var bodyRect = board.getBoundingClientRect(); 
-
-    // let test_p = document.createElement("p"); 
-    // board.appendChild(test_p); 
-    // let pRect = test_p.getBoundingClientRect();
-
-    // let new_div = document.createElement("div"); 
-    // var text = document.createTextNode(`${bodyRect.top}`);
-    // new_div.appendChild(text); 
-    // board.appendChild(new_div); 
-
-    // let the_div = document.createElement("div");
-    // var text2 = document.createTextNode(`${pRect.top}`);
-    // the_div.appendChild(text2);
-    // board.appendChild(the_div); 
-   
-    // var d = document.getElementById('board_piece');
-    // d.style.position = "relative";
-    // d.style.left = pRect.left + 'px';
-    // d.style.top = pRect.right + 'px';
-    // d.style.width = "10px"
-    // d.style.height = "10px"
-    // d.style.border = "1px solid red"
+    
+    let new_timer = new Timer(increase_teleportation_meter, 1000); 
 
     board.addEventListener("click", getClickPosition, false);
     let theThing = document.getElementById("jae"); 
     let meter = document.getElementById("teleportation_meter"); 
-    let counter = 0; 
+    let score = document.getElementById("scoreboard"); 
+
+    let score_num = 0; 
+
     let teleportation_meter = false; 
+    
+    countUp(); 
+    function countUp() {
+        setInterval(increaseScore, 10)
+    }
+
+    function increaseScore(){
+        
+        score_num += 1; 
+        var textnode = document.createTextNode(score_num); 
+
+        if (score.childNodes.length !== 0) {
+            score.removeChild(score.childNodes[0]);
+        }
+        debugger
+        score.appendChild(textnode); 
+    }
+
 
     function pause() {
-        window.setInterval(increase_teleportation_meter, 3000)
-        window.setTimeout(allow_teleport, 3000)
+        new_timer.start(); 
+        setTimeout(allow_teleport,3000)
     }
 
     pause(); 
@@ -50,7 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (new_px <= 90){
             meter.style.width = new_px + "px"; 
+        }    
+        
+        let new_width = meter.style.width; 
+        let new_num = parseInt(new_width.split("px")[0])
+        if (new_num >= 90){
+            new_timer.stop(); 
         }
+      
         
    }
     function allow_teleport () {
@@ -58,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getClickPosition(e) {
+        e.preventDefault(); 
         if (teleportation_meter) {
             var parentPosition = getPosition(e.currentTarget);
             var xPosition = e.clientX - parentPosition.x - (theThing.clientWidth / 2);
@@ -68,8 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
             theThing.style.left = xPosition + "px";
             theThing.style.top = yPosition + "px";
             meter.style.width = "0px";
-            //counter = 0; 
             pause(); 
+        }
+        else{
+
         }
 
     }
@@ -79,14 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         while (el) {
             if (el.tagName == "BODY") {
-                // deal with browser quirks with body/window/document and page scroll
                 var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
                 var yScroll = el.scrollTop || document.documentElement.scrollTop;
 
                 xPos += (el.offsetLeft - xScroll + el.clientLeft);
                 yPos += (el.offsetTop - yScroll + el.clientTop);
             } else {
-                // for all other non-BODY elements
                 xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
                 yPos += (el.offsetTop - el.scrollTop + el.clientTop);
             }

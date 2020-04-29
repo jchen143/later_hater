@@ -10,17 +10,38 @@
 </head>
 
 <body>
-    <h1>Later Haters</h1>
+    <div class="main-page">
+        <div class="left-side">
+            <h1>Later Haters</h1>
 
-    <label>Teleportation Recharge: 
-        <div class="teleportation_meter" id="teleportation_meter">
+            <div class="utilities">
+                <label>Teleportation Recharge: 
+                    <div class="teleportation_meter" id="teleportation_meter" style="width: 0px">
+
+                    </div>
+                </label>
+                <label>Score:
+                    <div id="scoreboard"></div>
+                </label>
+            </div>
+            <div class="board" id="board">
+
+                <img src="./src/assets/jaebae.png" id="jae">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="game-rules">
+                <div>Game Rules:</div>
+                <p class="rules-text">
+                    Oh hey, didn't see you there. It's tough to be an Internet Phenomenon/Influencer in the modern era.
+                    Haters are lurking at every corner. You have to learn to dodge the haters and say: Later Haters. 
+                    When the teleportation meter is full, you're able click on any point in the map to teleport there. 
+                    But beware, every move you make, there's another hater waiting to criticize. 
+
+                </p>
+            </div>
 
         </div>
-    </label>
-    
-    <div class="board" id="board">
-
-        <img src="./src/assets/jaebae.png" id="jae">
     </div>
 </body>
 
