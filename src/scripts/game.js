@@ -51,7 +51,7 @@ class Game {
     increaseScore() {
         //Check if any haters in the hater array have the same posiiton as Jae
         if(this.haterCheck()){
-            debugger
+           // debugger
             this.lost = true; 
         }
         if (!this.lost && !this.paused) {
@@ -67,7 +67,7 @@ class Game {
 
         //if this.lost 
         if(this.lost){
-            debugger
+            //debugger
             this.stop();
             clearInterval(this.counter);
             let lost_modal = document.getElementById("lost-modal-background"); 
@@ -75,7 +75,7 @@ class Game {
             let score_text = document.createTextNode(this.score_num)
             lost_modal_child.appendChild(score_text); 
             lost_modal.style.display = "block"; 
-            debugger
+           
         }
 
     }
@@ -85,9 +85,9 @@ class Game {
         let thing_top = parseInt(this.theThing.style.top.split("px")[0]); 
 
         for(let i = 0; i < this.haters.length; i++){
-            debugger
+            
             if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 <= this.haters[i].top + 30 && thing_top - 37 >= this.haters[i].top - 30)){
-                debugger
+                
                 return true; 
             }
         }
@@ -144,7 +144,7 @@ class Game {
 
             //create a new hater and add it to the hater array
             this.haters.push(new Obstacle (null, null, right_limit, left_limit, upper_limit, lower_limit, xPosition, yPosition)); 
-            debugger
+           // debugger
             this.start();
         }
         else {

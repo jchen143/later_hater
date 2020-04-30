@@ -9,6 +9,7 @@ class Obstacle{
         this.upper_limit = upper_limit;
         this.player_x = player_x;
         this.player_y = player_y;
+        this.move = this.move.bind(this); 
 
         if (xPos && yPos){
             this.left = xPos; 
@@ -22,18 +23,20 @@ class Obstacle{
         }
 
         this.makeObstacle(); 
+        debugger
+        this.move(); 
     }
 
     makeObstacle(){
-        let new_obstacle = document.createElement("div"); 
-        new_obstacle.classList.add("hater"); 
+        this.new_obstacle = document.createElement("div"); 
+        this.new_obstacle.classList.add("hater"); 
 
-        new_obstacle.style.position = "relative"; 
-        new_obstacle.style.left = this.left + "px";
-        new_obstacle.style.top = this.top + "px";
+        this.new_obstacle.style.position = "relative"; 
+        this.new_obstacle.style.left = this.left + "px";
+        this.new_obstacle.style.top = this.top + "px";
 
         let board = document.getElementById("board");
-        board.appendChild(new_obstacle); 
+        board.appendChild(this.new_obstacle); 
     }
 
     randomPoint(){
@@ -43,7 +46,7 @@ class Obstacle{
         xPos = Math.random() * (this.right_limit - this.left_limit) + this.left_limit;
         yPos = Math.random() * (this.lower_limit - this.upper_limit) + this.upper_limit;
 
-        while(Math.abs(xPos - this.player_x) < 50 || Math.abs(yPos - this.player_y) < 50){
+        while(Math.abs(xPos - this.player_x) < 100 || Math.abs(yPos - this.player_y) < 100){
             xPos = Math.random() * (this.right_limit - this.left_limit) + this.left_limit;
             yPos = Math.random() * (this.lower_limit - this.upper_limit) + this.upper_limit;
         }
@@ -53,8 +56,10 @@ class Obstacle{
     }
 
     move(){
-        
+       this.new_obstacle.style.transform = 'scaleX(-1)'; 
+       debugger
     }
+
 
 
 }
