@@ -32,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
         game.stop();
     }
     //Modal
+
+    //lost modal
+    let lost_modal = document.getElementById("lost-modal-background"); 
+    lost_modal.addEventListener('click', closeLostModal);
+
+    function closeLostModal(e){
+        e.preventDefault(); 
+        lost_modal.style.display='none'; 
+        location.reload();
+    }
+    //lost modal
    
   
         

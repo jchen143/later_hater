@@ -10,8 +10,10 @@ class Game {
     this.getClickPosition = this.getClickPosition.bind(this); 
     this.countUp = this.countUp.bind(this);
     this.paused = true; 
+    this.haters = []; 
     this.increaseScore = this.increaseScore.bind(this); 
     this.start = this.start.bind(this); 
+    this.haterCheck = this.haterCheck.bind(this); 
 
       this.meter = document.getElementById("teleportation_meter");
       
@@ -43,11 +45,15 @@ class Game {
     }
 
     countUp() {
-        setInterval(this.increaseScore, 10)
+        this.counter = setInterval(this.increaseScore, 10)
     }
 
     increaseScore() {
         //Check if any haters in the hater array have the same posiiton as Jae
+        if(this.haterCheck()){
+            debugger
+            this.lost = true; 
+        }
         if (!this.lost && !this.paused) {
             this.score_num += 1;
             var textnode = document.createTextNode(this.score_num);
@@ -60,7 +66,33 @@ class Game {
         }
 
         //if this.lost 
+        if(this.lost){
+            debugger
+            this.stop();
+            clearInterval(this.counter);
+            let lost_modal = document.getElementById("lost-modal-background"); 
+            let lost_modal_child = document.getElementById("lost-modal-child");
+            let score_text = document.createTextNode(this.score_num)
+            lost_modal_child.appendChild(score_text); 
+            lost_modal.style.display = "block"; 
+            debugger
+        }
 
+    }
+
+    haterCheck(){
+        let thing_left = parseInt(this.theThing.style.left.split('px')[0]);
+        let thing_top = parseInt(this.theThing.style.top.split("px")[0]); 
+
+        for(let i = 0; i < this.haters.length; i++){
+            debugger
+            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 <= this.haters[i].top + 30 && thing_top - 37 >= this.haters[i].top - 30)){
+                debugger
+                return true; 
+            }
+        }
+
+        return false; 
     }
     start() {
         this.timer.start();
@@ -106,12 +138,13 @@ class Game {
             
             let right_limit = centerX + centerX; 
             let left_limit = centerX - centerX; 
-
             let upper_limit = centerY - (centerY + this.theThing.clientHeight); 
-            let lower_limit = centerY + (centerY + this.theThing.clientHeight); 
-            //create a new hater and add it to the hater array
-            new Obstacle (left_limit, lower_limit); 
+            let lower_limit = centerY + (centerY + this.theThing.clientHeight - 10); 
+            
 
+            //create a new hater and add it to the hater array
+            this.haters.push(new Obstacle (null, null, right_limit, left_limit, upper_limit, lower_limit, xPosition, yPosition)); 
+            debugger
             this.start();
         }
         else {
@@ -147,7 +180,8 @@ class Game {
         this.board.addEventListener("click", this.getClickPosition, false);
         this.timer = new Timer(this.increase_teleportation_meter, 1000); 
         //this.teleport_timer = new Timer(this.allow_teleport, 3000);
-
+        //this.haters.push (new Obstacle) 
+        //this.counter = setInterval(this.increaseScore, 10);
         this.countUp();
         this.start();
         this.paused = false; 
@@ -159,8 +193,8 @@ class Game {
        
         //stops the score counter 
         this.paused = true; 
-
-        clearInterval(this.teleportation)
+        clearInterval(this.counter);
+        clearInterval(this.teleportation);
     }
 }
     

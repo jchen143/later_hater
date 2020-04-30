@@ -64,6 +64,7 @@ img{
     background-color: red; 
     top: -10px; 
     margin-bottom: -10px; 
+    transition: left .5s ease-in, top .5s ease-in;
 }
 
 .title-bar-container{
@@ -154,4 +155,23 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.lost-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.lost-modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+
 }
