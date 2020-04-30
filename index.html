@@ -6,18 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Later Haters</title>
     <link rel="stylesheet" type="text/css" href="./dist/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script type="application/javascript" src="./dist/main.js" defer></script>
+    
 </head>
 
 <body>
+    <div class="title-bar-container">
+        <div class="contact-info"> 
+            <a href="http://www.linkedin.com/in/jchen143">LinkedIn</a>
+            <a href="http://instagram.com/influencerjo">Personal Site</a>
+            <a href="http://www.github.com/jchen143 ">Github</a>
+        </div>
+
+        <h1>Later Haters</h1>
+        <div id="question">?</div>
+    </div>
     <div class="main-page">
+        
         <div class="left-side">
-            <h1>Later Haters</h1>
+            
 
             <div class="utilities">
-                <label>Teleportation Recharge: 
-                    <div class="teleportation_meter" id="teleportation_meter" style="width: 0px">
 
+                <label>Teleportation Recharge: 
+                    <div class="empty_meter">
+                        <div class="teleportation_meter" id="teleportation_meter" style="width: 0px">
+
+                        </div>
                     </div>
                 </label>
                 <label>Score:
@@ -25,24 +41,29 @@
                 </label>
             </div>
             <div class="board" id="board">
-
+                
                 <img src="./src/assets/jaebae.png" id="jae">
             </div>
         </div>
-        <div class="right-side">
-            <div class="game-rules">
+        <div class="modal-background" id="modal-background" style="display: block">
+            <div class="modal-child" id="modal-child" style="display: block">
                 <div>Game Rules:</div>
                 <p class="rules-text">
                     Oh hey, didn't see you there. It's tough to be an Internet Phenomenon/Influencer in the modern era.
-                    Haters are lurking at every corner. You have to learn to dodge the haters and say: Later Haters. 
-                    When the teleportation meter is full, you're able click on any point in the map to teleport there. 
-                    But beware, every move you make, there's another hater waiting to criticize. 
+                    Haters are lurking at every corner. You have to learn to dodge the haters and say: Later Haters.
 
+                    
+                    When the teleportation meter is full, you're able click on any point in the map to teleport there.
+                    But beware, every move you make, there's another hater waiting to criticize.
+
+                    <button id="modal-button">X</button>
                 </p>
             </div>
 
         </div>
     </div>
+    
+    
 </body>
 
 </html>
