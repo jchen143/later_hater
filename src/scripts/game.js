@@ -24,7 +24,7 @@ class Game {
     }
 
     increase_teleportation_meter() {
-        debugger
+        
         
         let current_width = this.meter.style.width;
             let num = parseInt(current_width.split("px")[0]);
@@ -47,7 +47,7 @@ class Game {
     }
 
     increaseScore() {
-        
+        //Check if any haters in the hater array have the same posiiton as Jae
         if (!this.lost && !this.paused) {
             this.score_num += 1;
             var textnode = document.createTextNode(this.score_num);
@@ -58,6 +58,8 @@ class Game {
 
             this.score.appendChild(textnode);
         }
+
+        //if this.lost 
 
     }
     start() {
@@ -78,23 +80,37 @@ class Game {
     }
 
     allow_teleport() {
-        debugger
+    
         this.teleportation_meter = true;
     }
 
     getClickPosition(e) {
         e.preventDefault();
-        debugger
+        
+      
         if (teleportation_meter) {
-            debugger
+            
             let parentPosition = this.getPosition(e.currentTarget);
             let xPosition = e.clientX - parentPosition.x - (this.theThing.clientWidth / 2);
             let yPosition = e.clientY - parentPosition.y - (this.theThing.clientHeight / 2);
-
+            
             teleportation_meter = false;
             this.theThing.style.left = xPosition + "px";
             this.theThing.style.top = yPosition + "px";
             this.meter.style.width = "0px";
+
+
+
+            let centerX = this.board.clientWidth / 2;
+            let centerY = this.board.clientHeight / 2 - this.theThing.clientHeight; 
+            
+            let right_limit = centerX + centerX; 
+            let left_limit = centerX - centerX; 
+
+            let upper_limit = centerY - (centerY + this.theThing.clientHeight); 
+            let lower_limit = centerY + (centerY + this.theThing.clientHeight); 
+            //create a new hater and add it to the hater array
+            new Obstacle (left_limit, lower_limit); 
 
             this.start();
         }
