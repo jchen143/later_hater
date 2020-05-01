@@ -27,6 +27,6 @@ Players can click on a point in the map and their icon will appear there. Haters
     * Production README
     
  ## Visual Sources: 
-    * Art Glitch Gif By Haydiroket (Mert Keskin)
-    * Vaporwave Gif By Kotutohum
-    * https://visualdon.uk/project/wormhole/
+ * Art Glitch Gif By Haydiroket (Mert Keskin)
+ * Vaporwave Gif By Kotutohum
+ * https://visualdon.uk/project/wormhole/
