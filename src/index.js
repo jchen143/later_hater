@@ -34,8 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //Modal
 
     //lost modal
+    let restart = document.getElementById("restart"); 
+    restart.addEventListener("click", closeLostModal, false); 
     let lost_modal = document.getElementById("lost-modal-background"); 
-    lost_modal.addEventListener('click', closeLostModal);
 
     function closeLostModal(e){
         e.preventDefault(); 

@@ -64,7 +64,7 @@ img{
     background-color: red; 
     top: -10px; 
     margin-bottom: -10px; 
-    transition: left .5s ease-in, top .5s ease-in;
+   
 }
 
 .title-bar-container{
@@ -117,7 +117,22 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #EE9B51;
+   border: 2px solid purple;
+  border-radius: 25px;
+   filter: drop-shadow(0px 0px 10px white);
+   height: 500px; 
+   padding: 40px; 
+
+     opacity: 100%;
+    font-family: 'Press Start 2P', cursive;
+     font-style: italic;
+    text-shadow: 0px 6px 10px purple;
+    color: black; 
+    letter-spacing: 1.2px; 
+    font-size: 17px; 
+
+   
 
 }
 
@@ -168,10 +183,90 @@ html {
 }
 
 .lost-modal-child {
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #EE9B51;
+   border: 2px solid purple;
+  border-radius: 25px;
+   filter: drop-shadow(0px 0px 10px white);
+   height: 500px; 
+   padding: 40px; 
 
+     opacity: 100%;
+    font-family: 'Press Start 2P', cursive;
+     font-style: italic;
+    text-shadow: 0px 6px 10px purple;
+    color: rgb(255,255,255); 
+    letter-spacing: 1.2px; 
+    font-size: 17px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    line-height: 20px;
+    width: 500px;
+
+}
+
+.background-title{
+    display: flex; 
+    justify-content: space-between;
+}
+
+#modal-button{
+    width: auto; 
+    opacity: 100%;
+    font-family: 'Press Start 2P', cursive;
+     font-style: italic;
+     font-size: 30px;
+    text-shadow: 0px 6px 10px lightseagreen;
+    color: rgb(255,255,255); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.final-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px; 
+    align-items: center; 
+}
+
+button {
+	background: #00A8BD;
+	border-bottom: 6px inset rgba(0,0,0,.5);
+	border-left: 6px inset rgba(0,0,0,.5);
+	border-right: 6px inset rgba(255,255,255,.5);
+	border-top: 6px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 2.2rem;
+	margin: 1rem;
+	min-width: 200px;
+	padding: .5rem;
+	text-transform: uppercase;
+	width: auto;
+	
+	&:focus,
+	&:hover {
+		background: purple;
+    }
+}
+
+.utilities label{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.rules-title{
+
+    display: flex;
+    justify-content: center;
 }

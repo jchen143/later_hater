@@ -14,12 +14,17 @@ class Game {
     this.increaseScore = this.increaseScore.bind(this); 
     this.start = this.start.bind(this); 
     this.haterCheck = this.haterCheck.bind(this); 
+    this.moveHaters = this.moveHaters.bind(this); 
+    //this.allow_teleport = this.allow_teleport.bind(this);
+
+    
 
       this.meter = document.getElementById("teleportation_meter");
       
       this.lost = false; 
       this.board = document.getElementById("board"); 
         this.theThing = document.getElementById("jae");
+        
         this.score = document.getElementById("scoreboard");
         this.score_num = 0; 
         this.teleportation_meter = false; 
@@ -72,8 +77,9 @@ class Game {
             clearInterval(this.counter);
             let lost_modal = document.getElementById("lost-modal-background"); 
             let lost_modal_child = document.getElementById("lost-modal-child");
-            let score_text = document.createTextNode(this.score_num)
-            lost_modal_child.appendChild(score_text); 
+            let final_score = document.getElementById("final-score");
+            let score_text = document.createTextNode(this.score_num);
+            final_score.appendChild(score_text); 
             lost_modal.style.display = "block"; 
            
         }
@@ -112,7 +118,7 @@ class Game {
     }
 
     allow_teleport() {
-    
+       
         this.teleportation_meter = true;
     }
 
@@ -145,6 +151,9 @@ class Game {
             //create a new hater and add it to the hater array
             this.haters.push(new Obstacle (null, null, right_limit, left_limit, upper_limit, lower_limit, xPosition, yPosition)); 
            // debugger
+            this.haters.forEach(hater => {
+                hater.move();
+            })
             this.start();
         }
         else {
@@ -185,6 +194,10 @@ class Game {
         this.countUp();
         this.start();
         this.paused = false; 
+
+        this.haters.push(new Obstacle(430, -7));
+        this.moving = new Timer(this.moveHaters, 30);
+       
     }
 
     stop(){
@@ -195,6 +208,14 @@ class Game {
         this.paused = true; 
         clearInterval(this.counter);
         clearInterval(this.teleportation);
+    }
+
+    moveHaters(){
+        debugger
+        this.haters.forEach(hater => {
+            debugger
+            hater.move(parseInt(this.theThing.style.left.split("px")[0]), parseInt(this.theThing.style.top.split("px")[0]) ); 
+        })
     }
 }
     

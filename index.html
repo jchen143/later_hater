@@ -48,20 +48,30 @@
         </div>
         <div class="modal-background" id="modal-background" style="display: block">
             <div class="modal-child" id="modal-child" style="display: block">
-                <label>Background: 
+                
+
+                    <div class="background-title">
+                        <p></p>
+                        <p>Background: </p>
+                        <div id="modal-button">X</div>
+                    </div>
                     <p class="rules-text">
                         Oh hey, didn't see you there. It's tough to be an Internet Phenomenon/Influencer in the modern era.
                         Haters are lurking at every corner. You have to learn to dodge the haters and say: Later Haters.
                     </p>
-                </label>
-                <label>Rules: 
+
+                    <div class="background-title">
+                        <p></p>
+                        <p>Rules: </p>
+                        <p></p>
+                    </div>
                     <p class="rules-text">
                         When the teleportation meter is full, you're able click on any point in the map to teleport there.
                         But beware, every move you make, there's another hater waiting to criticize.
                     </p>
                 </label>
 
-                    <button id="modal-button">X</button>
+                   
                 
             </div>
 
@@ -69,7 +79,13 @@
 
         <div class="lost-modal-background" id="lost-modal-background" style="display: none">
             <div class="lost-modal-child" id="lost-modal-child">
-                You Lost! 
+                <div class="final-message">
+                    <p>You Lost!</p>
+                    <p>Score: </p>
+                    <div id="final-score"></div>
+                    <button id="restart">Restart</button>
+
+                </div>
             </div>
         
         </div>
