@@ -16,7 +16,7 @@ class Game {
     this.haterCheck = this.haterCheck.bind(this); 
     this.moveHaters = this.moveHaters.bind(this); 
     //this.allow_teleport = this.allow_teleport.bind(this);
-
+        this.run_times = 0; 
     
 
       this.meter = document.getElementById("teleportation_meter");
@@ -151,9 +151,7 @@ class Game {
             //create a new hater and add it to the hater array
             this.haters.push(new Obstacle (null, null, right_limit, left_limit, upper_limit, lower_limit, xPosition, yPosition)); 
            // debugger
-            this.haters.forEach(hater => {
-                hater.move();
-            })
+           
             this.start();
         }
         else {
@@ -194,8 +192,13 @@ class Game {
         this.countUp();
         this.start();
 
+        
+        if(this.run_times === 0){
             this.haters.push(new Obstacle(430, -7));
             this.moving = new Timer(this.moveHaters, 30);
+            this.run_times += 1; 
+        }
+        
         this.paused = false; 
 
         
@@ -216,7 +219,7 @@ class Game {
         //debugger
         this.haters.forEach(hater => {
             //debugger
-            hater.move(parseInt(this.theThing.style.left.split("px")[0]), parseInt(this.theThing.style.top.split("px")[0]) ); 
+            hater.move(parseInt(this.theThing.style.left.split("px")[0]), parseInt(this.theThing.style.top.split("px")[0]), this.paused ); 
         })
     }
 }

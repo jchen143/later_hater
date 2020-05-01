@@ -55,38 +55,38 @@ class Obstacle{
         return {x: xPos, y: yPos}
     }
 
-    move(x, y){
+    move(x, y, paused){
        //this.new_obstacle.style.transform =; 
+        if (!paused){
+            if(this.left < x  + 10){
+                let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]); 
+                num_px += 2;
+                this.left = num_px; 
 
-       if(this.left < x  + 10){
-           let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]); 
-           num_px += 2;
-           this.left = num_px; 
+                this.new_obstacle.style.left = this.left + "px"; 
+            }
+            if(this.left > x + 10){
+                let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]);
+                num_px -= 2;
+                this.left = num_px;
 
-           this.new_obstacle.style.left = this.left + "px"; 
-       }
-       if(this.left > x + 10){
-           let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]);
-           num_px -= 2;
-           this.left = num_px;
+                this.new_obstacle.style.left = this.left + "px"; 
+            }
+                if (this.top < y - 10) {
+                    let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
+                    num_px += 2;
+                    this.top = num_px;
 
-           this.new_obstacle.style.left = this.left + "px"; 
-       }
-        if (this.top < y - 10) {
-            let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
-            num_px += 2;
-            this.top = num_px;
+                    this.new_obstacle.style.top = this.top + "px";
+                }
+                if (this.top > y - 10) {
+                    let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
+                    num_px -= 2;
+                    this.top = num_px;
 
-            this.new_obstacle.style.top = this.top + "px";
-        }
-        if (this.top > y - 10) {
-            let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
-            num_px -= 2;
-            this.top = num_px;
-
-            this.new_obstacle.style.top = this.top + "px";
-        }
-
+                    this.new_obstacle.style.top = this.top + "px";
+                }
+    }
 
       // debugger
     }
