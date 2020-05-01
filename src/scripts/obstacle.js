@@ -46,7 +46,7 @@ class Obstacle{
         xPos = Math.random() * (this.right_limit - this.left_limit) + this.left_limit;
         yPos = Math.random() * (this.lower_limit - this.upper_limit) + this.upper_limit;
 
-        while(Math.abs(xPos - this.player_x) < 100 || Math.abs(yPos - this.player_y) < 100){
+        while(Math.abs(xPos - this.player_x) < 200 || Math.abs(yPos - this.player_y) < 200){
             xPos = Math.random() * (this.right_limit - this.left_limit) + this.left_limit;
             yPos = Math.random() * (this.lower_limit - this.upper_limit) + this.upper_limit;
         }
@@ -58,30 +58,30 @@ class Obstacle{
     move(x, y){
        //this.new_obstacle.style.transform =; 
 
-       if(this.left < x  - 10){
+       if(this.left < x  + 10){
            let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]); 
-           num_px += 1;
+           num_px += 2;
            this.left = num_px; 
 
            this.new_obstacle.style.left = this.left + "px"; 
        }
        if(this.left > x + 10){
            let num_px = parseInt(this.new_obstacle.style.left.split("px")[0]);
-           num_px -= 1;
+           num_px -= 2;
            this.left = num_px;
 
            this.new_obstacle.style.left = this.left + "px"; 
        }
         if (this.top < y - 10) {
             let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
-            num_px += 1;
+            num_px += 2;
             this.top = num_px;
 
             this.new_obstacle.style.top = this.top + "px";
         }
-        if (this.top > y + 10) {
+        if (this.top > y - 10) {
             let num_px = parseInt(this.new_obstacle.style.top.split("px")[0]);
-            num_px -= 1;
+            num_px -= 2;
             this.top = num_px;
 
             this.new_obstacle.style.top = this.top + "px";
