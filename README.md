@@ -25,3 +25,8 @@ Players can click on a point in the map and their icon will appear there. Haters
 * Phase 3  Day 5
     * Complete HTML and CSS for site elements
     * Production README
+    
+ ## Visual Sources: 
+    * Art Glitch Gif By Haydiroket (Mert Keskin)
+    * Vaporwave Gif By Kotutohum
+    * https://visualdon.uk/project/wormhole/
