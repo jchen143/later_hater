@@ -92,7 +92,7 @@ class Game {
 
         for(let i = 0; i < this.haters.length; i++){
             debugger
-            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 30)){
+            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 10)){
                 debugger
                 return true; 
             }
