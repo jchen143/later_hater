@@ -91,9 +91,9 @@ class Game {
         let thing_top = parseInt(this.theThing.style.top.split("px")[0]); 
 
         for(let i = 0; i < this.haters.length; i++){
-            
-            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 <= this.haters[i].top + 30 && thing_top - 37 >= this.haters[i].top - 30)){
-                
+            debugger
+            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 30)){
+                debugger
                 return true; 
             }
         }
@@ -193,10 +193,12 @@ class Game {
         //this.counter = setInterval(this.increaseScore, 10);
         this.countUp();
         this.start();
+
+            this.haters.push(new Obstacle(430, -7));
+            this.moving = new Timer(this.moveHaters, 30);
         this.paused = false; 
 
-        this.haters.push(new Obstacle(430, -7));
-        this.moving = new Timer(this.moveHaters, 30);
+        
        
     }
 
@@ -211,9 +213,9 @@ class Game {
     }
 
     moveHaters(){
-        debugger
+        //debugger
         this.haters.forEach(hater => {
-            debugger
+            //debugger
             hater.move(parseInt(this.theThing.style.left.split("px")[0]), parseInt(this.theThing.style.top.split("px")[0]) ); 
         })
     }

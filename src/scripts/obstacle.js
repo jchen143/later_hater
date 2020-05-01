@@ -23,7 +23,7 @@ class Obstacle{
         }
 
         this.makeObstacle(); 
-        debugger
+        //debugger
         //this.move(); 
     }
 
@@ -48,7 +48,7 @@ class Obstacle{
 
         while(Math.abs(xPos - this.player_x) < 200 || Math.abs(yPos - this.player_y) < 200){
             xPos = Math.random() * (this.right_limit - this.left_limit) + this.left_limit;
-            yPos = Math.random() * (this.lower_limit - this.upper_limit) + this.upper_limit;
+            yPos = Math.random() * (this.lower_limit - this.upper_limit);
         }
     
 
@@ -88,7 +88,7 @@ class Obstacle{
         }
 
 
-       debugger
+      // debugger
     }
 
 
