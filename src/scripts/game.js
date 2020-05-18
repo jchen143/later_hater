@@ -91,9 +91,8 @@ class Game {
         let thing_top = parseInt(this.theThing.style.top.split("px")[0]); 
 
         for(let i = 0; i < this.haters.length; i++){
-            debugger
-            if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 10)){
-                debugger
+            //if((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 10)){
+            if ((thing_left + 30 <= this.haters[i].left + 30 && thing_left + 30 >= this.haters[i].left - 30) && (thing_top - 37 >= this.haters[i].top - 30 && thing_top - 37 <= this.haters[i].top + 10)) {
                 return true; 
             }
         }

@@ -44,11 +44,13 @@
     z-index: 100; 
 }
 
-img{
+#jae{
     height: 56px; 
     width: 70px; 
     position: relative;
-    filter: drop-shadow(0px 0px 10px white);
+    filter: drop-shadow(0px 0px 20px white);
+    border: 1px solid salmon;
+    margin: 0; 
     
 }
 
@@ -67,7 +69,7 @@ img{
     background-size: cover;
     top: -10px; 
     margin-bottom: -10px; 
-   
+    border: 1px solid red; 
 }
 
 .title-bar-container{
@@ -155,27 +157,12 @@ html {
     margin-right: 10px;
     cursor: pointer;
 }
-.contact-info a{
-     width: auto; 
-    opacity: 100%;
-    font-family: 'Press Start 2P', cursive;
-     font-style: italic;
-     font-size: 10px;
-    text-shadow: 0px 6px 10px lightseagreen;
-    color: rgb(255,255,255); 
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 3px; 
-    
-}
+
 
 .contact-info{
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
 }
 
 .lost-modal-background {
@@ -237,6 +224,7 @@ html {
     align-items: center;
     margin-right: 10px;
     cursor: pointer;
+    margin-left: 50px; 
 }
 
 .final-message{
@@ -278,4 +266,20 @@ button {
 
     display: flex;
     justify-content: center;
+}
+
+#personal_site, #linkedin, #github, #angellist{
+    height: 30px; 
+    width: 30px; 
+}
+
+.contact-info a > .notation{
+    display: none; 
+    color: black;
+    font-size: 10px;
+    position: absolute;  
+    
+}
+.contact-info a img:hover ~ .notation{
+    display: block; 
 }
