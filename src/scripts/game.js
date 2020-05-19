@@ -185,9 +185,7 @@ class Game {
     run() {
         this.board.addEventListener("click", this.getClickPosition, false);
         this.timer = new Timer(this.increase_teleportation_meter, 1000); 
-        //this.teleport_timer = new Timer(this.allow_teleport, 3000);
-        //this.haters.push (new Obstacle) 
-        //this.counter = setInterval(this.increaseScore, 10);
+
         this.countUp();
         this.start();
 

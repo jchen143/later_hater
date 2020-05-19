@@ -38,10 +38,27 @@ document.addEventListener("DOMContentLoaded", () => {
     restart.addEventListener("click", closeLostModal, false); 
     let lost_modal = document.getElementById("lost-modal-background"); 
 
+
+    window.onload = function () {
+        var reloading = sessionStorage.getItem("reloading");
+        if (reloading) {
+            sessionStorage.removeItem("reloading");
+            let modal_button = document.getElementById("modal-button");
+            modal_button.click(); 
+        }
+    }
+    function reloadP() {
+        sessionStorage.setItem("reloading", "true");
+        document.location.reload();
+    }
+
     function closeLostModal(e){
+
         e.preventDefault(); 
         lost_modal.style.display='none'; 
-        location.reload();
+        //location.reload();
+
+        reloadP(); 
     }
     //lost modal
    
